@@ -1,0 +1,137 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use hospitalManagement
+switched to db hospitalManagement
+> db
+hospitalManagement
+> db.hospitalDetails.insertMany([
+... {
+... "hid":"H1",
+... "name":"Appollo hospital",
+... "location":"17.3986,78.4846",
+... "address":"Plot no. 3-5-874/1,near old MLA quarters,Hyderguda,Hyderabad 500029",
+... "contactNo":"040-23231380",
+... },
+... {
+... "hid":"H2",
+... "name":"Rainbow hospital",
+... "location":"17.4563,78.3727",
+... "address":"Plot no. 32 & 33,opp CII,Kondapur,Hyderabad,Telangana 500084",
+... "contactNo":"040-42462400",
+... },
+... {
+... "hid":"H3",
+... "name":"Sunshine hospital",
+... "location":"17.4201,78.3850",
+... "address":"45,7-56/19,Dargah road,Prashant hills,Radhe nagar,Gachibowli,Rai Durg,Telangana 500035",
+... "contactNo":"040-44550000",
+... },
+... {
+... "hid":"H4",
+... "name":"Yashoda hospital",
+... "location":"17.4245,78.4567",
+... "address":"Raj Bhavan rd,Matha nagar,Somajiguda,Hyderabad,Telangana 500082",
+... "contactNo":"040-45674567",
+... }])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5f771ceb9d0b4125a8ec0bd6"),
+                ObjectId("5f771ceb9d0b4125a8ec0bd7"),
+                ObjectId("5f771ceb9d0b4125a8ec0bd8"),
+                ObjectId("5f771ceb9d0b4125a8ec0bd9")
+        ]
+}
+> db.hospitalDetails.find().pretty();
+{
+        "_id" : ObjectId("5f771ceb9d0b4125a8ec0bd6"),
+        "hid" : "H1",
+        "name" : "Appollo hospital",
+        "location" : "17.3986,78.4846",
+        "address" : "Plot no. 3-5-874/1,near old MLA quarters,Hyderguda,Hyderabad 500029",
+        "contactNo" : "040-23231380"
+}
+{
+        "_id" : ObjectId("5f771ceb9d0b4125a8ec0bd7"),
+        "hid" : "H2",
+        "name" : "Rainbow hospital",
+        "location" : "17.4563,78.3727",
+        "address" : "Plot no. 32 & 33,opp CII,Kondapur,Hyderabad,Telangana 500084",
+        "contactNo" : "040-42462400"
+}
+{
+        "_id" : ObjectId("5f771ceb9d0b4125a8ec0bd8"),
+        "hid" : "H3",
+        "name" : "Sunshine hospital",
+        "location" : "17.4201,78.3850",
+        "address" : "45,7-56/19,Dargah road,Prashant hills,Radhe nagar,Gachibowli,Rai Durg,Telangana 500035",
+        "contactNo" : "040-44550000"
+}
+{
+        "_id" : ObjectId("5f771ceb9d0b4125a8ec0bd9"),
+        "hid" : "H4",
+        "name" : "Yashoda hospital",
+        "location" : "17.4245,78.4567",
+        "address" : "Raj Bhavan rd,Matha nagar,Somajiguda,Hyderabad,Telangana 500082",
+        "contactNo" : "040-45674567"
+}
+> db.ventilatorDetails.insertMany([
+... {
+... "hid":"H1",
+... "ventilatorId":"H1V5",
+... "status":"occupied",
+... "name":"occupied",
+... },
+... {
+... "hid":"H2",
+... "ventilatorId":"H2V5",
+... "status":"available",
+... "name":"Rainbow hospital",
+... },
+... {
+... "hid":"H3",
+... "ventiatorId":"H3V5",
+... "status":""available",
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):17:11
+> db.ventilatorDetails.insertMany([ { "hid":"H1", "ventilatorId":"H1V5", "status":"occupied", "name":"occupied", }, { "hid":"H2", "ventilatorId":"H2V5", "status":"available", "name":"Rainbow hospital", }, { "hid":"H3", "ventiatorId":"H3V5", "status":"available","name":"Sunshine hospital",},{"hid":"H4","ventilatorId":"H4V5","status":"in-maintainance","name":"Yashoda hospital",}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5f771e459d0b4125a8ec0bda"),
+                ObjectId("5f771e459d0b4125a8ec0bdb"),
+                ObjectId("5f771e459d0b4125a8ec0bdc"),
+                ObjectId("5f771e459d0b4125a8ec0bdd")
+        ]
+}
+> db.ventilatorDetails.find().pretty();
+{
+        "_id" : ObjectId("5f771e459d0b4125a8ec0bda"),
+        "hid" : "H1",
+        "ventilatorId" : "H1V5",
+        "status" : "occupied",
+        "name" : "occupied"
+}
+{
+        "_id" : ObjectId("5f771e459d0b4125a8ec0bdb"),
+        "hid" : "H2",
+        "ventilatorId" : "H2V5",
+        "status" : "available",
+        "name" : "Rainbow hospital"
+}
+{
+        "_id" : ObjectId("5f771e459d0b4125a8ec0bdc"),
+        "hid" : "H3",
+        "ventiatorId" : "H3V5",
+        "status" : "available",
+        "name" : "Sunshine hospital"
+}
+{
+        "_id" : ObjectId("5f771e459d0b4125a8ec0bdd"),
+        "hid" : "H4",
+        "ventilatorId" : "H4V5",
+        "status" : "in-maintainance",
+        "name" : "Yashoda hospital"
+}
